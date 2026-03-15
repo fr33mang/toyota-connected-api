@@ -1,6 +1,7 @@
 # Toyota Connected Europe API Client
 
 [![Lint](https://github.com/fr33mang/toyota-connected-api/actions/workflows/lint.yml/badge.svg)](https://github.com/fr33mang/toyota-connected-api/actions/workflows/lint.yml)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 **Unofficial.** This project is not affiliated with, endorsed by, or connected to Toyota. Use at your own risk.
 
