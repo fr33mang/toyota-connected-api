@@ -1,23 +1,27 @@
 # Toyota Connected Europe API Client
 
+[![Lint](https://github.com/fr33mang/ha_toyota/actions/workflows/lint.yml/badge.svg)](https://github.com/fr33mang/ha_toyota/actions/workflows/lint.yml)
+
 **Unofficial.** This project is not affiliated with, endorsed by, or connected to Toyota. Use at your own risk.
 
 Async Python client for the My Toyota (Toyota Connected Europe) API, reverse-engineered from HAR traffic.
 
 ## Setup
 
-From the repo (local or clone):
+Use a virtual environment (required on many systems; avoids “externally-managed-environment” errors):
 
 ```bash
 python3 -m venv .venv
-.venv/bin/activate
+source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install .
 ```
 
-For development (editable install):
+For development (editable install with Black and pre-commit):
 
 ```bash
-pip install -e .
+source .venv/bin/activate
+pip install -e ".[dev]"
+pre-commit install   # optional: run Black on commit
 ```
 
 As a dependency from GitHub (e.g. for a Home Assistant custom integration):
