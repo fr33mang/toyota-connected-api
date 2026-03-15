@@ -1,6 +1,6 @@
 # Toyota Connected Europe API Client
 
-[![Lint](https://github.com/fr33mang/ha_toyota/actions/workflows/lint.yml/badge.svg)](https://github.com/fr33mang/ha_toyota/actions/workflows/lint.yml)
+[![Lint](https://github.com/fr33mang/toyota-connected-api/actions/workflows/lint.yml/badge.svg)](https://github.com/fr33mang/toyota-connected-api/actions/workflows/lint.yml)
 
 **Unofficial.** This project is not affiliated with, endorsed by, or connected to Toyota. Use at your own risk.
 
@@ -27,7 +27,7 @@ pre-commit install   # optional: run Black on commit
 As a dependency from GitHub (e.g. for a Home Assistant custom integration):
 
 ```bash
-pip install toyota-connected-api @ git+https://github.com/fr33mang/ha_toyota@main
+pip install toyota-connected-api @ git+https://github.com/fr33mang/toyota-connected-api@main
 ```
 
 ## Usage
