@@ -26,5 +26,6 @@ jobs:
         uses: codecov/codecov-action@v5
         with:
           files: coverage.xml
+          slug: fr33mang/toyota-connected-api
           token: ${{ secrets.CODECOV_TOKEN }}
           fail_ci_if_error: false
