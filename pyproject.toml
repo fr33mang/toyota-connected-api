@@ -18,7 +18,15 @@ dependencies = [
 dev = [
     "black>=24.0.0",
     "pre-commit>=3.0.0",
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.24.0",
+    "respx>=0.22.0",
+    "pytest-cov>=6.0.0",
 ]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
 
 [tool.black]
 line-length = 120

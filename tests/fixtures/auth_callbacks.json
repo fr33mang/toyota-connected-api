@@ -1,0 +1,23 @@
+{
+  "authId": "REDACTED_AUTH_ID",
+  "callbacks": [
+    {
+      "type": "NameCallback",
+      "output": [{"name": "prompt", "value": "Market Locale"}],
+      "input": [{"name": "IDToken1", "value": ""}],
+      "_id": 0
+    },
+    {
+      "type": "NameCallback",
+      "output": [{"name": "prompt", "value": "Internationalization"}],
+      "input": [{"name": "IDToken2", "value": ""}],
+      "_id": 1
+    },
+    {
+      "type": "NameCallback",
+      "output": [{"name": "prompt", "value": "UI Locales"}],
+      "input": [{"name": "IDToken3", "value": ""}],
+      "_id": 2
+    }
+  ]
+}
