@@ -33,9 +33,7 @@ from toyota_api.models import (
 
 def _x_client_ref(guid: str, version: str) -> str:
     """HMAC-SHA256(key=version, message=guid) as lowercase hex (matches Toyota One app)."""
-    digest = hmac.new(
-        version.encode("utf-8"), guid.encode("utf-8"), hashlib.sha256
-    ).digest()
+    digest = hmac.new(version.encode("utf-8"), guid.encode("utf-8"), hashlib.sha256).digest()
     return digest.hex()
 
 

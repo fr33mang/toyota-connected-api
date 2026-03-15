@@ -35,6 +35,7 @@ def _log_response(r: httpx.Response, label: str = "") -> None:
     if not r.is_success:
         logger.warning("%s %s %s -> %s %s", label, r.request.method, r.request.url, r.status_code, body[:500])
 
+
 from toyota_api.const import (
     AUTH_BASE_URL,
     AUTH_INDEX_SERVICE,
@@ -177,9 +178,7 @@ class ToyotaAuth:
 
                 # ForgeRock can return failure info
                 if data.get("failedId") or data.get("reason"):
-                    raise RuntimeError(
-                        f"Login failed: {data.get('reason') or data.get('failedId') or 'unknown'}"
-                    )
+                    raise RuntimeError(f"Login failed: {data.get('reason') or data.get('failedId') or 'unknown'}")
 
                 auth_id = data.get("authId")
                 callbacks = data.get("callbacks") or []
@@ -228,7 +227,7 @@ class ToyotaAuth:
             else:
                 # Include last response so we can see what the server actually returned
                 last_prompts = []
-                for cb in (data.get("callbacks") or []):
+                for cb in data.get("callbacks") or []:
                     for o in cb.get("output", []) or []:
                         if isinstance(o, dict) and "value" in o:
                             last_prompts.append(o["value"])
@@ -364,4 +363,5 @@ class ToyotaAuth:
 
 def _basic_auth(username: str, password: str) -> str:
     import base64
+
     return base64.b64encode(f"{username}:{password}".encode()).decode()
