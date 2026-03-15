@@ -1,0 +1,57 @@
+# Toyota Connected Europe API Client
+
+**Unofficial.** This project is not affiliated with, endorsed by, or connected to Toyota. Use at your own risk.
+
+Async Python client for the My Toyota (Toyota Connected Europe) API, reverse-engineered from HAR traffic.
+
+## Setup
+
+From the repo (local or clone):
+
+```bash
+python3 -m venv .venv
+.venv/bin/activate
+pip install .
+```
+
+For development (editable install):
+
+```bash
+pip install -e .
+```
+
+As a dependency from GitHub (e.g. for a Home Assistant custom integration):
+
+```bash
+pip install toyota-connected-api @ git+https://github.com/fr33mang/ha_toyota@main
+```
+
+## Usage
+
+```python
+import asyncio
+from toyota_api import ToyotaClient
+
+async def main():
+    client = ToyotaClient("your@email.com", "password")
+    vehicles = await client.get_vehicles()  # logs in automatically
+    # ...
+    await client.logout()
+
+asyncio.run(main())
+```
+
+## Implemented endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `get_account()` | `GET /v4/account` | User profile: name, contacts, addresses, language, country. |
+| `get_vehicles()` | `GET /v2/vehicle/guid` | List of linked vehicles (VIN, model, year, generation, fuel type, etc.). Fills the generation cache used by other vehicle endpoints. |
+| `get_location(vin)` | `GET /v1/location` | Last parked position: coordinates and timestamp. |
+| `get_trips(vin, from_date, to_date, ...)` | `GET /v1/trips` | Trip history for a date range; optional route, summary, pagination (limit/offset). |
+| `get_service_history(vin)` | `GET /v1/servicehistory/vehicle/summary` | Service history: dates, mileage, provider, category. |
+| `get_next_maintenance(vin)` | `GET /v1/osb/card` | Next maintenance due date and schedule intervals (time/mileage). |
+| `get_telemetry(vin)` | `GET /v3/telemetry` | Live-ish data: odometer, fuel level (%), last update time. |
+| `get_vehicle_health(vin)` | `GET /v1/vehiclehealth/status` | Warning lights and indicators (e.g. engine oil). |
+
+Vehicle methods take only `vin`; the client loads the vehicle list when needed to resolve generation. `login()` and `logout()` are available on the client for explicit session control; the first API call will log in automatically if not already authenticated.

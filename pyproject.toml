@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "toyota-connected-api"
+version = "0.1.0"
+description = "Unofficial async Python client for Toyota Connected Europe API"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+dependencies = [
+    "httpx[http2]>=0.27.0",
+    "pydantic>=2.0.0",
+]
+
+[tool.setuptools.packages.find]
+packages = ["toyota_api"]
