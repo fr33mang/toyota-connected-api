@@ -19,7 +19,6 @@ from toyota_api.auth import (
 )
 from toyota_api.const import AUTH_BASE_URL, JSON_REALM_PATH, OAUTH_REALM_PATH
 
-
 # ----- PKCE and helpers -----
 
 
